@@ -79,7 +79,12 @@ public:
 
     Game* deleteGame(Game* root, string gameID) {
         // Base condition
-        if (root == nullptr) return root;
+        if (root == nullptr)
+        {
+            cout<<"ID not found , cant delete"<<endl;
+            return root;
+
+        } 
 
         // Iterate through BST 
         if (gameID < root->Game_ID) {
@@ -335,7 +340,12 @@ public:
     }
     // To delete a node
     Player* deletePlayer(Player* root, string playerID) {
-        if (root == nullptr) return root;
+        if (root == nullptr)
+        {
+            cout<<"ID not found"<<endl;
+            return root;
+
+        } 
 
         // Find the node to be deleted
         if (playerID < root->Player_ID) {
@@ -577,29 +587,31 @@ int main() {
     playerBST.displayNLayer(no_layers_players);
     gameBST.displayNLayer(no_layers_games);
 
-
-
-    //gameBST.displayNLayer(1);
-    playerBST.displayNLayer(10);
-    string playerID = "9063655097";
-    playerBST.showPlayerPreorderPath("9063655097");
-    int layer = playerBST.getPlayerLayer(playerID);
-    if (layer == -1) {
-        cout << "Player with ID " << playerID << " not found in the tree.\n";
-    } else {
-        cout << "Player with ID " << playerID << " is at layer " << layer << ".\n";
-    }
-    // Display the players and games in order
-    // cout << "Players in order:\n";
-    // playerBST.Display(playerBST.root);
-    // cout << "\nGames in order:\n";
-    // gameBST.Display(gameBST.root);
-
-    // Example: Searching for a Player and Game by ID
-       // Replace with actual ID for testing
-
+    // Layer number of specific node
+    string playerid , gameid;
+    cout<<"Enter player ID to find its layer number: ";
+    cin>>playerid;
+    cout<<"Enter game ID to find its layer number: ";
+    cin>>gameid; 
     
+    int layer = playerBST.getPlayerLayer(playerid);
+    if (layer == -1) {
+        cout << "Player with ID " << playerid << " not found in the tree.\n";
+    } else {
+        cout << "Player with ID " << playerid << " is at layer " << layer << ".\n";
+    }
 
+    int layer2 = gameBST.getGameLayer(gameid);
+    if (layer2 == -1) {
+        cout << "Player with ID " << gameid << " not found in the tree.\n";
+    } else {
+        cout << "Player with ID " << gameid << " is at layer " << layer << ".\n";
+    }
+
+    //To show preorderpath
+
+    string player__ID = "9063655097";
+    playerBST.showPlayerPreorderPath(player__ID);
     
 
     return 0;
