@@ -525,6 +525,13 @@ int main() {
     //Load data and that makes BST
     loadPlayers("Players.txt", playerBST, skipThreshold);
     loadGames("Games.txt", gameBST);
+
+    string searchPlayerID ;  
+    string searchGameID ; 
+    cout<<"Enter the ID of player to search: ";
+    cin>>searchPlayerID;
+    cout<<"Enter the ID of Game to search: ";
+    cin>>searchGameID;
     //gameBST.displayNLayer(1);
     playerBST.displayNLayer(10);
     string playerID = "9063655097";
@@ -542,8 +549,7 @@ int main() {
     // gameBST.Display(gameBST.root);
 
     // Example: Searching for a Player and Game by ID
-    string searchPlayerID = "P001";  // Replace with actual ID for testing
-    string searchGameID = "2425812923";    // Replace with actual ID for testing
+       // Replace with actual ID for testing
 
     Player* foundPlayer = playerBST.search(searchPlayerID);
     if (foundPlayer) {
