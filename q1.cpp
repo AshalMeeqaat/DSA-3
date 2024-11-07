@@ -531,6 +531,22 @@ int main() {
     cout<<"Enter the ID of player to search: ";
     cin>>searchPlayerID;
     cout<<"Enter the ID of Game to search: ";
+
+    Player* foundPlayer = playerBST.search(searchPlayerID);
+    if (foundPlayer) {
+        cout << "\nFound Player: " << foundPlayer->Name << endl;
+    } else {
+        cout << "Player not found"<<endl;
+    }
+
+    Game* foundGame = gameBST.search(searchGameID);
+    if (foundGame) {
+        cout << "\nFound Game: " << foundGame->Name << endl;
+    } else {
+        cout << "Game not found"<<endl;
+    }
+
+
     cin>>searchGameID;
     //gameBST.displayNLayer(1);
     playerBST.displayNLayer(10);
@@ -551,19 +567,7 @@ int main() {
     // Example: Searching for a Player and Game by ID
        // Replace with actual ID for testing
 
-    Player* foundPlayer = playerBST.search(searchPlayerID);
-    if (foundPlayer) {
-        cout << "\nFound Player: " << foundPlayer->Name << endl;
-    } else {
-        cout << "\nPlayer with ID " << searchPlayerID << " not found.\n";
-    }
-
-    Game* foundGame = gameBST.search(searchGameID);
-    if (foundGame) {
-        cout << "\nFound Game: " << foundGame->Name << endl;
-    } else {
-        cout << "\nGame with ID " << searchGameID << " not found.\n";
-    }
+    
 
     gameBST.saveGamesToCSV("games_output.csv");
     playerBST.savePlayersToCSV("players_output.csv");
