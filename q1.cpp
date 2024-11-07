@@ -526,11 +526,13 @@ int main() {
     loadPlayers("Players.txt", playerBST, skipThreshold);
     loadGames("Games.txt", gameBST);
 
+    // SEARCHING 
     string searchPlayerID ;  
     string searchGameID ; 
     cout<<"Enter the ID of player to search: ";
     cin>>searchPlayerID;
     cout<<"Enter the ID of Game to search: ";
+    cin>>searchGameID;
 
     Player* foundPlayer = playerBST.search(searchPlayerID);
     if (foundPlayer) {
@@ -545,9 +547,27 @@ int main() {
     } else {
         cout << "Game not found"<<endl;
     }
+    
+    // DELETION
+    string deletePlayerID ;
+    string deleteGameID ;
 
+    cout<<"Enter the ID of player to delete: ";
+    cin>>deletePlayerID;
+    cout<<"Enter the ID of Game to delete: ";
+    cin>>deleteGameID;
 
-    cin>>searchGameID;
+    cout << "\nDeleting Player with ID: " << deletePlayerID << endl;
+    playerBST.deletePlayer(deletePlayerID);
+
+    cout << "\nDeleting Game with ID: " << deleteGameID << endl;
+    gameBST.deleteGame(deleteGameID);
+
+    // MAKE CSV FILES
+    gameBST.saveGamesToCSV("games_output.csv");
+    playerBST.savePlayersToCSV("players_output.csv");
+
+    
     //gameBST.displayNLayer(1);
     playerBST.displayNLayer(10);
     string playerID = "9063655097";
@@ -569,8 +589,7 @@ int main() {
 
     
 
-    gameBST.saveGamesToCSV("games_output.csv");
-    playerBST.savePlayersToCSV("players_output.csv");
+    
 
     return 0;
 }
