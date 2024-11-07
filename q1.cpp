@@ -516,6 +516,7 @@ void loadPlayers(const string& filename, PlayerBinarySearchTree& playerBST, int 
     file.close();
 }
 int main() {
+    // Create both Binary Trees
     PlayerBinarySearchTree playerBST;
     GameBinarySearchTree gameBST;
 
