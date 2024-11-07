@@ -567,7 +567,18 @@ int main() {
     gameBST.saveGamesToCSV("games_output.csv");
     playerBST.savePlayersToCSV("players_output.csv");
 
-    
+    //Showing N layers
+    int no_layers_players , no_layers_games ;
+    cout<<"Enter the no of layers to show of player BST: ";
+    cin>>no_layers_players;
+    cout<<"Enter the no of layers to show of games BST: ";
+    cin>>no_layers_games;
+
+    playerBST.displayNLayer(no_layers_players);
+    gameBST.displayNLayer(no_layers_games);
+
+
+
     //gameBST.displayNLayer(1);
     playerBST.displayNLayer(10);
     string playerID = "9063655097";
