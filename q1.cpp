@@ -519,10 +519,10 @@ int main() {
     // Create both Binary Trees
     PlayerBinarySearchTree playerBST;
     GameBinarySearchTree gameBST;
+    // 232586
+    int skipThreshold = (86 * 10 + 100);  
 
-    int skipThreshold = (86 * 10 + 100);  // (last two digits of roll number * 10 + 100)
-
-    // Load data from CSV files
+    //Load data and that makes BST
     loadPlayers("Players.txt", playerBST, skipThreshold);
     loadGames("Games.txt", gameBST);
     //gameBST.displayNLayer(1);
